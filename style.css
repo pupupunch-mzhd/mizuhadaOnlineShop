@@ -125,6 +125,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #1a1a1a;
+    height: 80vh;
 }
 
 .hero-image {
