@@ -20,26 +20,9 @@ body {
     height: 30px;
 }
 
-/* Corrected Navbar Center */
 .navbar-center {
     display: flex;
-    /* Use flexbox to align items in a row */
     align-items: center;
-    /* Vertically center the items */
-}
-
-.navbar-center a {
-    text-decoration: none;
-    color: #000;
-    margin: 0 15px;
-    font-size: 14px;
-    font-weight: 500;
-    position: relative;
-    transition: color 0.3s ease;
-}
-
-.navbar-center a.active {
-    font-weight: 700;
 }
 
 .navbar-center a {
@@ -73,38 +56,31 @@ body {
 .hero-section {
     display: flex;
     min-height: 80vh;
-    /* กำหนดความสูงขั้นต่ำของส่วน Hero */
     position: relative;
     overflow: hidden;
 }
 
 .hero-content {
     flex: 0 0 40%;
-    /* กำหนดให้ส่วนเนื้อหามีความกว้าง 40% */
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 0 80px;
-    /* เพิ่ม padding ด้านข้าง */
     background-color: #f7f7f7;
     z-index: 2;
 }
 
 .hero-content h1 {
     font-size: 3.5em;
-    /* ปรับขนาดฟอนต์ให้ใหญ่ขึ้น */
     margin-bottom: 10px;
     color: #000;
     line-height: 1.1;
-    /* เพิ่มระยะห่างระหว่างบรรทัด */
 }
 
 .hero-content h2 {
     font-size: 2em;
-    /* ปรับขนาดฟอนต์ให้ใหญ่ขึ้น */
     margin-top: 0;
     margin-bottom: 5px;
-    /* ลดระยะห่าง */
     color: #000;
 }
 
@@ -134,11 +110,9 @@ body {
 
 .slider {
     flex: 0 0 60%;
-    /* กำหนดให้ส่วน slider มีความกว้าง 60% */
     position: relative;
     overflow: hidden;
     background-color: #1a1a1a;
-    /* ตั้งค่าพื้นหลังเริ่มต้น */
 }
 
 .slide {
@@ -169,25 +143,20 @@ body {
     object-position: center;
 }
 
-/* Slider Navigation Buttons - New positioning */
 .slider-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(255, 255, 255, 0.9);
-    /* ทำให้ปุ่มเด่นขึ้นเล็กน้อย */
     border: none;
     border-radius: 50%;
     width: 40px;
-    /* ปรับขนาดปุ่มให้เล็กลง */
     height: 40px;
-    /* ปรับขนาดปุ่มให้เล็กลง */
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     font-size: 1.2em;
-    /* ปรับขนาดไอคอนลูกศร */
     color: #000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
@@ -199,58 +168,11 @@ body {
 }
 
 .prev-btn {
-    left: 42%;
-    /* ขยับปุ่มซ้ายเข้ามาใกล้ขอบของรูป/วิดีโอ */
-    /* ไม่ต้องใช้ transform: translateX(-50%) แล้ว เพราะเราจะจัดตำแหน่งด้วย left */
+    left: 20px;
 }
 
 .next-btn {
-    right: 30px;
-    /* ตำแหน่งเดิม (หรือปรับตามต้องการ) */
-}
-
-/* Responsive adjustments for hero section */
-@media (max-width: 992px) {
-    .hero-section {
-        flex-direction: column;
-    }
-
-    .hero-content {
-        flex: 1 1 100%;
-        min-height: 40vh;
-        /* ลดความสูงของเนื้อหาบนมือถือ */
-        padding: 40px 20px;
-        text-align: center;
-        /* จัดข้อความให้อยู่ตรงกลางบนมือถือ */
-    }
-
-    .hero-content h1 {
-        font-size: 2.5em;
-    }
-
-    .hero-content h2 {
-        font-size: 1.5em;
-    }
-
-    .hero-content .shop-now-btn {
-        margin: 0 auto;
-    }
-
-    .slider {
-        flex: 1 1 100%;
-        min-height: 50vh;
-        /* ความสูงของ Slider บนมือถือ */
-    }
-
-    .prev-btn {
-        left: 15px;
-        /* จัดตำแหน่งปุ่มซ้ายบนมือถือ */
-    }
-
-    .next-btn {
-        right: 15px;
-        /* จัดตำแหน่งปุ่มขวาบนมือถือ */
-    }
+    right: 20px;
 }
 
 /* Accessibility Widget */
@@ -274,7 +196,6 @@ body {
 
 /* Product Showcase Section */
 .product-showcase {
-    margin-top: 80px;
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -410,7 +331,7 @@ body {
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(150px, 1fr));
     gap: 15px;
     justify-content: center;
 }
@@ -419,10 +340,11 @@ body {
     position: relative;
     border-radius: 10px;
     overflow: hidden;
-    background-color: #f0f0f0;
+    background-color: #f8e5e8;
     padding: 8px;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
+    aspect-ratio: 9 / 16;
 }
 
 .video-card:hover {
@@ -431,7 +353,8 @@ body {
 
 .review-video {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
     border-radius: 6px;
 }
@@ -455,6 +378,11 @@ body {
 
 .video-card:hover .play-button {
     background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* JavaScript Class for playing video */
+.video-card.playing .play-button {
+    display: none;
 }
 
 /* Dropdown Menu */
@@ -588,15 +516,11 @@ body {
     .dropdown {
         display: none;
     }
-}
 
-@media (max-width: 992px) {
     .navbar-center {
         display: none;
     }
-}
 
-@media (max-width: 992px) {
     .navbar {
         justify-content: space-between;
     }
@@ -625,6 +549,34 @@ body {
         width: 40px;
         height: 40px;
         font-size: 1.2em;
+    }
+
+    .product-showcase {
+        justify-content: center;
+        gap: 15px;
+        padding: 30px 20px;
+    }
+
+    .trending-card {
+        width: 100%;
+    }
+
+    .product-card {
+        width: calc(50% - 10px);
+    }
+
+    .reviews-section {
+        padding: 30px 15px;
+    }
+
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -658,138 +610,17 @@ body {
         padding: 12px 25px;
         font-size: 0.9em;
     }
-}
 
-.product-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-@media (max-width: 1200px) {
-    .product-card {
-        width: 220px;
-    }
-
-    .trending-card {
-        width: 320px;
-    }
-}
-
-@media (max-width: 992px) {
-    .product-showcase {
-        justify-content: center;
-        gap: 15px;
-        padding: 30px 20px;
-    }
-
-    .trending-card {
-        width: 100%;
-    }
-
-    .product-card {
-        width: calc(50% - 10px);
-    }
-}
-
-@media (max-width: 576px) {
     .product-card {
         width: 100%;
-    }
-}
-
-.reviews-section {
-    padding: 50px 40px;
-    background-color: #fff;
-    text-align: center;
-}
-
-.section-title {
-    font-size: 1.5em;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 30px;
-}
-
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
-    justify-content: center;
-}
-
-.video-card {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #f0f0f0;
-    padding: 8px;
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-}
-
-.video-card:hover {
-    transform: scale(1.03);
-}
-
-.review-video {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 6px;
-}
-
-.play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    color: #000;
-    transition: background-color 0.3s;
-}
-
-.video-card:hover .play-button {
-    background-color: rgba(255, 255, 255, 0.9);
-}
-
-@media (max-width: 1200px) {
-    .video-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media (max-width: 992px) {
-    .video-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .video-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 576px) {
-    .reviews-section {
-        padding: 30px 15px;
     }
 
     .video-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.container {
+    max-width: 1440px; /* Adjust as needed */
+    margin: 0 auto;
 }

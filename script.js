@@ -47,3 +47,22 @@ function adjustSliderButtons() {
 // Call on load and resize
 window.addEventListener('load', adjustSliderButtons);
 window.addEventListener('resize', adjustSliderButtons);
+
+document.addEventListener('DOMContentLoaded', function () {
+    const videoCards = document.querySelectorAll('.video-card');
+
+    videoCards.forEach(card => {
+        const video = card.querySelector('video');
+        const playButton = card.querySelector('.play-button');
+
+        card.addEventListener('click', function () {
+            if (video.paused) {
+                video.play();
+                card.classList.add('playing');
+            } else {
+                video.pause();
+                card.classList.remove('playing');
+            }
+        });
+    });
+});
