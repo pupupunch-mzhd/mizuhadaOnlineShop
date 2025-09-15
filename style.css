@@ -196,10 +196,12 @@ body {
 
 /* Product Showcase Section */
 .product-showcase {
+    margin-top: 180px;
+    margin-bottom: 130px;
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 150px 40px;
+    gap: 20px;
+    padding: 0 40px;
     background-color: #fff;
     flex-wrap: wrap;
 }
@@ -208,8 +210,8 @@ body {
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     overflow: hidden;
-    width: 290px;
-    height: 500px;
+    width: 22%;
+    /* กำหนดความกว้างเป็น 25% เพื่อให้แสดง 4 การ์ดในหนึ่งแถว */
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -218,7 +220,8 @@ body {
 }
 
 .trending-card {
-    width: 350px;
+    width: 30%;
+    /* กำหนดความกว้างให้มากกว่าการ์ดสินค้าปกติ */
     position: relative;
     border: none;
     box-shadow: none;
@@ -295,15 +298,15 @@ body {
 
 .product-image {
     width: 100%;
-    margin-top: 30px;
     height: auto;
-    object-fit: contain;
-    padding: 10px;
+    object-fit: cover;
+    /* ทำให้รูปภาพเต็มพื้นที่การ์ด */
 }
 
 .shop-now-btn {
     width: 100%;
-    margin-top: 40px;
+    margin-top: 10px;
+    /* ลดระยะห่างด้านบนของปุ่ม */
     padding: 15px 0;
     background-color: #000;
     color: #fff;
@@ -316,6 +319,43 @@ body {
 
 .shop-now-btn:hover {
     background-color: #333;
+}
+
+/* Responsive adjustments for product cards */
+@media (max-width: 1200px) {
+    .product-card {
+        width: calc(25% - 15px);
+    }
+
+    .trending-card {
+        width: calc(30% - 15px);
+    }
+}
+
+@media (max-width: 992px) {
+    .product-showcase {
+        padding: 0 20px;
+    }
+
+    .product-card,
+    .trending-card {
+        width: calc(50% - 10px);
+        /* 2 การ์ดต่อแถว */
+    }
+}
+
+@media (max-width: 576px) {
+    .product-showcase {
+        padding: 0 15px;
+        flex-direction: column;
+    }
+
+    .product-card,
+    .trending-card {
+        width: 100%;
+        /* 1 การ์ดต่อแถว */
+        margin-bottom: 15px;
+    }
 }
 
 /* Reviews Section */
