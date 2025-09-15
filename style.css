@@ -552,9 +552,12 @@ body {
     }
 
     .product-showcase {
+        display: flex;
         justify-content: center;
-        gap: 15px;
-        padding: 30px 20px;
+        gap: 20px;
+        padding: 150px 40px;
+        background-color: #fff;
+        flex-wrap: wrap;
     }
 
     .trending-card {
@@ -621,6 +624,7 @@ body {
 }
 
 .container {
-    max-width: 1440px; /* Adjust as needed */
+    max-width: 1440px;
+    /* Adjust as needed */
     margin: 0 auto;
 }
