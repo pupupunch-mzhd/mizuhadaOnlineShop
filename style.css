@@ -206,19 +206,6 @@ body {
     flex-wrap: wrap;
 }
 
-.product-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 22%;
-    /* กำหนดความกว้างเป็น 25% เพื่อให้แสดง 4 การ์ดในหนึ่งแถว */
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
 .trending-card {
     width: 30%;
     /* กำหนดความกว้างให้มากกว่าการ์ดสินค้าปกติ */
@@ -702,3 +689,172 @@ footer {
     line-height: 1.5;
 }
 
+/* Product Card Hover Effect */
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    /* Adjust height as needed */
+    overflow: hidden;
+}
+
+/* Product Showcase Section */
+.product-showcase {
+    margin-top: 180px;
+    margin-bottom: 130px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 40px;
+    background-color: #fff;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 500px;
+    width: 22%;
+    /* กำหนดความกว้างเป็น 25% เพื่อให้แสดง 4 การ์ดในหนึ่งแถว */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.trending-card {
+    width: 30%;
+    /* กำหนดความกว้างให้มากกว่าการ์ดสินค้าปกติ */
+    position: relative;
+    border: none;
+    box-shadow: none;
+}
+
+.product-image {
+    width: 100%;
+    height: 350px;
+    /* กำหนดความสูงของรูปภาพให้คงที่ */
+    object-fit: contain;
+    /* ทำให้รูปภาพพอดีกับกรอบโดยไม่ยืด */
+    /* padding: 10px; */
+}
+
+.product-info {
+    padding: 15px 10px 0;
+}
+
+.product-info h4 {
+    font-size: 0.8em;
+    font-weight: 500;
+    color: #666;
+    margin: 0;
+}
+
+.product-info h3 {
+    font-size: 1.4em;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.shop-now-btn {
+    width: 100%;
+    margin-top: auto;
+    /* จัดปุ่มให้อยู่ล่างสุดเสมอ */
+    padding: 15px 0;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.shop-now-btn:hover {
+    background-color: #333;
+}
+
+/* Responsive adjustments for product cards */
+@media (max-width: 1200px) {
+    .product-card {
+        width: calc(25% - 15px);
+    }
+
+    .trending-card {
+        width: calc(30% - 15px);
+    }
+}
+
+@media (max-width: 992px) {
+    .product-showcase {
+        padding: 0 20px;
+    }
+
+    .product-card,
+    .trending-card {
+        width: calc(50% - 10px);
+        /* 2 การ์ดต่อแถว */
+    }
+}
+
+@media (max-width: 576px) {
+    .product-showcase {
+        padding: 0 15px;
+        flex-direction: column;
+    }
+
+    .product-card,
+    .trending-card {
+        width: 100%;
+        /* 1 การ์ดต่อแถว */
+        margin-bottom: 15px;
+    }
+}
+
+.product-image-hover {
+    opacity: 0;
+}
+
+.product-card:hover .product-image {
+    opacity: 0;
+}
+
+.product-card:hover .product-image-hover {
+    opacity: 1;
+}
+
+/* --- Product Card Hover & Layout Fixes (Added) --- */
+
+/* Fix: Ensure product card has a defined height */
+.product-showcase .product-card {
+    height: 500px;
+}
+
+/* Fix: Ensure image container is positioned correctly */
+.product-card .image-wrapper {
+    position: relative;
+    height: 500px;
+    /* This height will make the image section consistent */
+    overflow: hidden;
+}
+
+/* Fix: Position images for hover effect */
+.product-card .image-wrapper .product-image {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    /* Correctly fits the image inside the container */
+    /* padding: 10px; */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Fix: Push the button to the bottom of the card */
+.product-card .shop-now-btn {
+    margin-top: 10px;
+}
