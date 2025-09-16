@@ -830,13 +830,13 @@ footer {
 
 /* Fix: Ensure product card has a defined height */
 .product-showcase .product-card {
-    height: 500px;
+    height: 490px;
 }
 
 /* Fix: Ensure image container is positioned correctly */
 .product-card .image-wrapper {
     position: relative;
-    height: 500px;
+    height: 490px;
     /* This height will make the image section consistent */
     overflow: hidden;
 }
@@ -852,9 +852,4 @@ footer {
     /* Correctly fits the image inside the container */
     /* padding: 10px; */
     transition: opacity 0.3s ease-in-out;
-}
-
-/* Fix: Push the button to the bottom of the card */
-.product-card .shop-now-btn {
-    margin-top: 10px;
 }

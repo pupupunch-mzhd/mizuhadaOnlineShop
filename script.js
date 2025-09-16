@@ -1,17 +1,32 @@
 const slides = document.querySelectorAll('.slide');
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
+
+const slideTitle = document.getElementById('slide-title');
+const slideSubtitle = document.getElementById('slide-subtitle');
+const slideText = document.getElementById('slide-text');
+
 let currentSlide = 0;
+let slideInterval;
 
 function showSlide(index) {
     slides.forEach((slide, i) => {
         slide.classList.remove('active');
         if (i === index) {
             slide.classList.add('active');
+            updateContent(slide);
         }
     });
-    // เพิ่มโค้ดนี้เพื่อปรับตำแหน่งปุ่มลูกศรตามขนาดหน้าจอ
-    adjustSliderButtons();
+}
+
+function updateContent(slide) {
+    const title = slide.getAttribute('data-title');
+    const subtitle = slide.getAttribute('data-subtitle');
+    const text = slide.getAttribute('data-text');
+
+    slideTitle.textContent = title;
+    slideSubtitle.textContent = subtitle;
+    slideText.textContent = text;
 }
 
 function nextSlide() {
@@ -24,10 +39,23 @@ function prevSlide() {
     showSlide(currentSlide);
 }
 
+function startAutoSlide() {
+    slideInterval = setInterval(nextSlide, 5000); // เปลี่ยนทุกๆ 5 วินาที
+}
+
+function stopAutoSlide() {
+    clearInterval(slideInterval);
+}
+
+// หยุดการเลื่อนอัตโนมัติเมื่อเมาส์ไปชี้ และเริ่มใหม่เมื่อเมาส์ออก
+document.querySelector('.hero-section').addEventListener('mouseenter', stopAutoSlide);
+document.querySelector('.hero-section').addEventListener('mouseleave', startAutoSlide);
+
 nextBtn.addEventListener('click', nextSlide);
 prevBtn.addEventListener('click', prevSlide);
 
 showSlide(currentSlide);
+startAutoSlide();
 
 // Function to adjust button positioning based on screen size
 function adjustSliderButtons() {
